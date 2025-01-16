@@ -31,7 +31,7 @@ final slides = [
 ];
 
 class HomeScreen extends StatefulWidget {
-     static const String name = 'home_screen';
+  static const String name = 'Smart Running App';
   const HomeScreen({super.key});
 
   @override
@@ -47,12 +47,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: const Text('Flutter + Material 3'),
+        title: const Text('Smart Running App'),
       ),
-      body: PageView(
+      body: PageView.builder(
         controller: pageViewController,
         physics: const BouncingScrollPhysics(),
-        children: slides.map((slideData) => _SlideWidget(slide: slideData)).toList(),
+        itemCount: slides.length,
+        itemBuilder: (context, index) {
+          return _SlideWidget(slide: slides[index]);
+        },
+        onPageChanged: (index) {
+          // Optional: Add logic if needed when page changes
+        },
       ),
       drawer: SideMenu(scaffoldKey: scaffoldKey),
     );
@@ -101,17 +107,22 @@ class _VideoPlayerWidget extends StatefulWidget {
 class _VideoPlayerWidgetState extends State<_VideoPlayerWidget> {
   late VideoPlayerController _controller;
 
-@override
-void initState() {
-  super.initState();
-  print("Initializing video player with URL: ${widget.videoUrl}");
-  _controller = VideoPlayerController.asset(widget.videoUrl)
-    ..initialize().then((_) {
-      setState(() {});
-    }).catchError((error) {
-      print("Error initializing video: $error");
-    });
-}
+  @override
+  void initState() {
+    super.initState();
+    _initializeVideo();
+  }
+
+  void _initializeVideo() {
+    _controller = VideoPlayerController.asset(widget.videoUrl)
+      ..initialize().then((_) {
+        setState(() {});
+        _controller.play(); // Reproduce automáticamente el video
+        _controller.setLooping(true); // Hacer que el video se repita
+      }).catchError((error) {
+        print("Error initializing video: $error");
+      });
+  }
 
   @override
   void dispose() {

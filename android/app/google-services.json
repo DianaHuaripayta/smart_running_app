@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "224729384124",
+    "project_id": "smartrunningapp-6dfd4",
+    "storage_bucket": "smartrunningapp-6dfd4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224729384124:android:dec4c346eb6cd5883f3cb9",
+        "android_client_info": {
+          "package_name": "com.example.smart_running_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAThNY9XkVSnY8ogWsfHGqURf-rxi1FVuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

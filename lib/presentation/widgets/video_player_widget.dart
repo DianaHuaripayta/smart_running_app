@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
-  final Uri videoUrl;
+  final String videoUrl;
 
-  const VideoPlayerWidget({required this.videoUrl, Key? key}) : super(key: key);
+  const VideoPlayerWidget({
+    required this.videoUrl,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
@@ -12,129 +15,161 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController _controller;
+  bool _isPlaying = false;
+  bool _isLoading = true;
   bool _hasError = false;
+  String? _errorMessage;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(widget.videoUrl)
-      ..initialize().then((_) {
-        if (mounted) {
-          setState(() {});
-        }
-      }).catchError((error) {
-        print('Error al cargar el video: $error');
-        setState(() {
-          _hasError = true;
-        });
+    _initializeVideo();
+  }
+
+  Future<void> _initializeVideo() async {
+    try {
+      setState(() {
+        _isLoading = true;
+        _hasError = false;
       });
+
+      _controller = VideoPlayerController.asset(
+        widget.videoUrl,  // Cambiado para cargar desde assets
+      );
+
+      await _controller.initialize();
+      _controller.addListener(_videoListener);
+
+      setState(() {
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+        _hasError = true;
+        _errorMessage = 'Error al cargar el video: $e';
+      });
+      print('Error inicializando video: $e');
+    }
+  }
+
+  void _videoListener() {
+    if (mounted) {
+      setState(() {
+        _isPlaying = _controller.value.isPlaying;
+      });
+    }
   }
 
   @override
   void dispose() {
+    _controller.removeListener(_videoListener);
     _controller.dispose();
     super.dispose();
   }
 
+  void _togglePlay() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        _controller.play();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
     if (_hasError) {
-      return  Center(
-        child: Text(
-          'Error al cargar el video.${_hasError} ',
-          style: TextStyle(color: Colors.red),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.error_outline, color: Colors.red, size: 48),
+            const SizedBox(height: 16),
+            Text(
+              _errorMessage ?? 'Error al cargar el video',
+              style: const TextStyle(color: Colors.red),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _initializeVideo,
+              child: const Text('Reintentar'),
+            ),
+          ],
         ),
       );
     }
 
     return Column(
       children: [
-        _controller.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    VideoPlayer(_controller),
-                    _VideoControls(controller: _controller),
-                  ],
-                ),
-              )
-            : const Center(child: CircularProgressIndicator()),
-      ],
-    );
-  }
-}
-
-class _VideoControls extends StatefulWidget {
-  final VideoPlayerController controller;
-
-  const _VideoControls({required this.controller});
-
-  @override
-  _VideoControlsState createState() => _VideoControlsState();
-}
-
-class _VideoControlsState extends State<_VideoControls> {
-  bool _showControls = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: _showControls ? 1.0 : 0.0,
-      duration: const Duration(milliseconds: 300),
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            _showControls = !_showControls;
-          });
-        },
-        child: Container(
-          color: Colors.black26,
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        AspectRatio(
+          aspectRatio: _controller.value.aspectRatio,
+          child: Stack(
+            alignment: Alignment.bottomCenter,
             children: [
-              IconButton(
-                icon: Icon(
-                  widget.controller.value.isPlaying
-                      ? Icons.pause
-                      : Icons.play_arrow,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  setState(() {
-                    if (widget.controller.value.isPlaying) {
-                      widget.controller.pause();
-                    } else {
-                      widget.controller.play();
-                    }
-                  });
-                },
-              ),
-              Expanded(
-                child: VideoProgressIndicator(
-                  widget.controller,
-                  allowScrubbing: true,
-                  colors: const VideoProgressColors(
-                    playedColor: Colors.red,
-                    bufferedColor: Colors.grey,
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-              ),
-              ValueListenableBuilder<VideoPlayerValue>(
-                valueListenable: widget.controller,
-                builder: (context, value, child) {
-                  return Text(
-                    '${_formatDuration(value.position)} / ${_formatDuration(value.duration)}',
-                    style: const TextStyle(color: Colors.white),
-                  );
-                },
-              ),
+              VideoPlayer(_controller),
+              _buildControls(),
             ],
           ),
         ),
+      ],
+    );
+  }
+
+  Widget _buildControls() {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.transparent,
+            Colors.black.withOpacity(0.5),
+          ],
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          IconButton(
+            icon: Icon(
+              _isPlaying ? Icons.pause : Icons.play_arrow,
+              color: Colors.white,
+              size: 30,
+            ),
+            onPressed: _togglePlay,
+          ),
+          Expanded(
+            child: VideoProgressIndicator(
+              _controller,
+              allowScrubbing: true,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              colors: const VideoProgressColors(
+                playedColor: Colors.red,
+                bufferedColor: Colors.white24,
+                backgroundColor: Colors.white54,
+              ),
+            ),
+          ),
+          ValueListenableBuilder<VideoPlayerValue>(
+            valueListenable: _controller,
+            builder: (context, value, child) {
+              return Text(
+                '${_formatDuration(value.position)} / ${_formatDuration(value.duration)}',
+                style: const TextStyle(color: Colors.white),
+              );
+            },
+          ),
+          const SizedBox(width: 16),
+        ],
       ),
     );
   }

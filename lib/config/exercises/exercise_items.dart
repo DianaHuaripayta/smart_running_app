@@ -10,7 +10,7 @@ class ExerciseItems {
   final IconData icon;
 
   const ExerciseItems({
-     required this.id,
+    required this.id,
     required this.index,
     required this.imageUrl,
     required this.title,
@@ -24,35 +24,39 @@ const appExerciseItems = <ExerciseItems>[
   ExerciseItems(
     id: 1,
     index: '1',
-    title: 'Ejercicio 1',
-    description: 'Descripcionnnnnn',
+    title: 'Sin Nombre',
+    description:
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
     video: '/progress',
     imageUrl: 'assets/images/ex-1.jpeg',
     icon: Icons.self_improvement,
   ),
   ExerciseItems(
-     id: 2,
+    id: 2,
     index: '2',
-    title: 'Ejercicio 2',
-    description: 'Descripcionnnnnn',
+    title: 'Sin Nombre',
+    description:
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
     video: '/counter_riverpod',
     imageUrl: 'assets/images/ex-1.jpeg',
     icon: Icons.transfer_within_a_station_outlined,
   ),
   ExerciseItems(
-         id: 3,
+    id: 3,
     index: '3',
-    title: 'Ejercicio 3',
-    description: 'Descripcionnnnnn',
+    title: 'Sin Nombre',
+    description:
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
     video: '/buttons',
     imageUrl: 'assets/images/ex-2.jpg',
     icon: Icons.trending_up_outlined,
   ),
   ExerciseItems(
-      id: 4,
+    id: 4,
     index: '4',
-    title: 'Ejercicio 4',
-    description: 'Descripcionnnnnn',
+    title: 'Sin Nombre',
+    description:
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
     video: '/cards',
     imageUrl: 'assets/images/ex-3.jpg',
     icon: Icons.whatshot,

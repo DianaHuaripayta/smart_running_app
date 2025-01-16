@@ -18,27 +18,27 @@ class MenuItem {
 const appMenuItems = <MenuItem>[
   MenuItem(
     title: 'Calentamiento',
-    subTitle: 'Generales y controlados',
+    subTitle: 'Calentamiento para correr',
     link: '/progress',
     icon: Icons.self_improvement,
-    subItems: [
-      MenuItem(
-        title: 'Estiramientos',
-        subTitle: 'Estiramientos básicos',
-        link: '/stretching',
-        icon: Icons.fitness_center,
-      ),
-      MenuItem(
-        title: 'Movilidad',
-        subTitle: 'Ejercicios de movilidad',
-        link: '/mobility',
-        icon: Icons.directions_run,
-      ),
-    ],
+    // subItems: [
+    //   MenuItem(
+    //     title: 'Estiramientos',
+    //     subTitle: 'Estiramientos básicos',
+    //     link: '/stretching',
+    //     icon: Icons.fitness_center,
+    //   ),
+    //   MenuItem(
+    //     title: 'Movilidad',
+    //     subTitle: 'Ejercicios de movilidad',
+    //     link: '/mobility',
+    //     icon: Icons.directions_run,
+    //   ),
+    // ],
   ),
   MenuItem(
     title: 'Fuerza',
-    subTitle: 'Counter using Riverpod',
+    subTitle: 'Fortaleza de pierna, tobillos, etc...',
     link: '/counter_riverpod',
     icon: Icons.transfer_within_a_station_outlined,
      subItems: [
@@ -48,52 +48,52 @@ const appMenuItems = <MenuItem>[
         link: '/general',
         icon: Icons.fitness_center,
       ),
-      MenuItem(
-        title: 'Movilidad',
-        subTitle: 'Ejercicios de movilidad',
-        link: '/mobility',
-        icon: Icons.directions_run,
-      ),
+      // MenuItem(
+      //   title: 'Movilidad',
+      //   subTitle: 'Ejercicios de movilidad',
+      //   link: '/mobility',
+      //   icon: Icons.directions_run,
+      // ),
     ],
   ),
   MenuItem(
     title: 'Velocidad',
-    subTitle: 'Variable botones con Fluttwe',
+    subTitle: 'Correr más rápido',
     link: '/buttons',
     icon: Icons.trending_up_outlined,
-     subItems: [
-      MenuItem(
-        title: 'Estiramientos',
-        subTitle: 'Estiramientos básicos',
-        link: '/stretching',
-        icon: Icons.fitness_center,
-      ),
-      MenuItem(
-        title: 'Movilidad',
-        subTitle: 'Ejercicios de movilidad',
-        link: '/mobility',
-        icon: Icons.directions_run,
-      ),
-    ],
+    //  subItems: [
+    //   MenuItem(
+    //     title: 'Estiramientos',
+    //     subTitle: 'Estiramientos básicos',
+    //     link: '/stretching',
+    //     icon: Icons.fitness_center,
+    //   ),
+    //   MenuItem(
+    //     title: 'Movilidad',
+    //     subTitle: 'Ejercicios de movilidad',
+    //     link: '/mobility',
+    //     icon: Icons.directions_run,
+    //   ),
+    // ],
   ),
   MenuItem(
     title: 'Resistencia',
-    subTitle: 'Contenedor estilizado',
+    subTitle: 'Correr más kilometros',
     link: '/cards',
     icon: Icons.whatshot,
-     subItems: [
-      MenuItem(
-        title: 'Estiramientos',
-        subTitle: 'Estiramientos básicos',
-        link: '/stretching',
-        icon: Icons.fitness_center,
-      ),
-      MenuItem(
-        title: 'Movilidad',
-        subTitle: 'Ejercicios de movilidad',
-        link: '/mobility',
-        icon: Icons.directions_run,
-      ),
-    ],
+    //  subItems: [
+    //   MenuItem(
+    //     title: 'Estiramientos',
+    //     subTitle: 'Estiramientos básicos',
+    //     link: '/stretching',
+    //     icon: Icons.fitness_center,
+    //   ),
+    //   MenuItem(
+    //     title: 'Movilidad',
+    //     subTitle: 'Ejercicios de movilidad',
+    //     link: '/mobility',
+    //     icon: Icons.directions_run,
+    //   ),
+    // ],
   ),
 ];
