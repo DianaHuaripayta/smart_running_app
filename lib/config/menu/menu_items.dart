@@ -96,4 +96,11 @@ const appMenuItems = <MenuItem>[
     //   ),
     // ],
   ),
+  MenuItem(
+    title: 'Técnica tu técnica',
+    subTitle: 'De Carrera',
+    link: '/Runningtechnique',
+    icon: Icons.directions_run,
+  ),
+  
 ];

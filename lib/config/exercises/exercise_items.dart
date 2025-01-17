@@ -26,7 +26,7 @@ const appExerciseItems = <ExerciseItems>[
     index: '1',
     title: 'Sin Nombre',
     description:
-        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/progress',
     imageUrl: 'assets/images/ex-1.jpeg',
     icon: Icons.self_improvement,
@@ -36,7 +36,7 @@ const appExerciseItems = <ExerciseItems>[
     index: '2',
     title: 'Sin Nombre',
     description:
-        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/counter_riverpod',
     imageUrl: 'assets/images/ex-1.jpeg',
     icon: Icons.transfer_within_a_station_outlined,
@@ -46,7 +46,7 @@ const appExerciseItems = <ExerciseItems>[
     index: '3',
     title: 'Sin Nombre',
     description:
-        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/buttons',
     imageUrl: 'assets/images/ex-2.jpg',
     icon: Icons.trending_up_outlined,
@@ -56,9 +56,10 @@ const appExerciseItems = <ExerciseItems>[
     index: '4',
     title: 'Sin Nombre',
     description:
-        'Velit nisi ipsum do excepteur nisi anim in aute voluptate. Fugiat tempor pariatur exercitation voluptate fugiat mollit deserunt. Officia excepteur exercitation ut pariatur deserunt culpa enim commodo. Ex duis et anim aute cupidatat.',
+        'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/cards',
     imageUrl: 'assets/images/ex-3.jpg',
     icon: Icons.whatshot,
   ),
+  
 ];

@@ -17,11 +17,11 @@ final appRouter = GoRouter(
       name: GeneralScreen.name,
       builder: (context, state) => const GeneralScreen(),
     ),
-    // GoRoute(
-    //   path: '/buttons',
-    //   name: ButtonsScreen.name,
-    //   builder: (context, state) => const ButtonsScreen(),
-    // ),
+    GoRoute(
+      path: '/Runningtechnique',
+      name: RunningtechniqueScreen.name,
+      builder: (context, state) => const RunningtechniqueScreen(),
+    ),
 
   ],
 );

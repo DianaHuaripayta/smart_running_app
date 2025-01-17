@@ -98,7 +98,7 @@ class ExerciseDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title:  Text('${exercise.title}'),
+        title: Text('${exercise.title}'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -111,7 +111,7 @@ class ExerciseDetailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    exercise.title,
+                    '${exercise.title} - ${exercise.setsAndReps}',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(height: 8),
