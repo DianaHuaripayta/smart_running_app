@@ -24,7 +24,7 @@ const appExerciseItems = <ExerciseItems>[
   ExerciseItems(
     id: 1,
     index: '1',
-    title: 'Exercise 1 GENERAL',
+    title: 'Exercise 1',
     description:
         'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/progress',
@@ -111,7 +111,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     title: 'CALF RISES',
     description:'Punta y talón. Para la activación de los gemelos o soleos.',
     video: '/progress',
-    imageUrl: 'assets/images/ex-1.png',
+    imageUrl: 'assets/images/01_Calf_Rises.png',
     icon: Icons.self_improvement,
   ),
   ExerciseItems(
@@ -121,7 +121,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Rotación de tobillo hacia dentro y hacia fuera.',
     video: '/counter_riverpod',
-    imageUrl: 'assets/images/ex-2.png',
+    imageUrl: 'assets/images/02_Rotacion_de_tobillos.png',
     icon: Icons.transfer_within_a_station_outlined,
   ),
   ExerciseItems(
@@ -131,7 +131,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Extender la pierna.',
     video: '/buttons',
-    imageUrl: 'assets/images/ex-3.png',
+    imageUrl:  'assets/images/04_Swings_Frontales.png',
     icon: Icons.trending_up_outlined,
   ),
   ExerciseItems(
@@ -141,7 +141,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Extensión de la pierna con balanceos hacia el frente.',
     video: '/cards',
-    imageUrl: 'assets/images/ex-4.png',
+    imageUrl: 'assets/images/05_Hamstring_Sweeps.png',
     icon: Icons.whatshot,
   ),
     ExerciseItems(
@@ -151,7 +151,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/cards',
-    imageUrl: 'assets/images/ex-5.png',
+    imageUrl: 'assets/images/06_Talones_al_gluteo.png',
     icon: Icons.whatshot,
   ),
     ExerciseItems(
@@ -161,7 +161,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/cards',
-    imageUrl: 'assets/images/ex-6.png',
+    imageUrl: 'assets/images/07_Skipping_Alto.png',
     icon: Icons.whatshot,
   ),
     ExerciseItems(
@@ -171,7 +171,7 @@ const appWarmUpForTreadmillItems = <ExerciseItems>[
     description:
         'Velit nisi ipsum do excepteur nisi anim in aute voluptate.',
     video: '/cards',
-    imageUrl: 'assets/images/ex-7.png',
+    imageUrl: 'assets/images/08_Skipping_Ruso.png',
     icon: Icons.whatshot,
   ),
 ];
