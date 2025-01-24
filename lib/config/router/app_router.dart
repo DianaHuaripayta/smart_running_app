@@ -22,6 +22,11 @@ final appRouter = GoRouter(
       name: RunningtechniqueScreen.name,
       builder: (context, state) => const RunningtechniqueScreen(),
     ),
+     GoRoute(
+      path: '/Warmupfortreadmill',
+      name: WarmupfortreadmillScreen.name,
+      builder: (context, state) => const WarmupfortreadmillScreen(),
+    ),
 
   ],
 );

@@ -17,24 +17,18 @@ class MenuItem {
 }
 const appMenuItems = <MenuItem>[
   MenuItem(
-    title: 'Calentamiento',
-    subTitle: 'Calentamiento para correr',
+    title: 'Calentamientos',
+    subTitle: 'General',
     link: '/progress',
     icon: Icons.self_improvement,
-    // subItems: [
-    //   MenuItem(
-    //     title: 'Estiramientos',
-    //     subTitle: 'Estiramientos básicos',
-    //     link: '/stretching',
-    //     icon: Icons.fitness_center,
-    //   ),
-    //   MenuItem(
-    //     title: 'Movilidad',
-    //     subTitle: 'Ejercicios de movilidad',
-    //     link: '/mobility',
-    //     icon: Icons.directions_run,
-    //   ),
-    // ],
+    subItems: [
+      MenuItem(
+        title: 'Calentamiento',
+        subTitle: 'Antes de usar la corredora',
+        link: '/Warmupfortreadmill',
+        icon: Icons.directions_run,
+      ),
+    ],
   ),
   MenuItem(
     title: 'Fuerza',
