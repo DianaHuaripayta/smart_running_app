@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_running_app/presentation/screens/home/link_detail_screen.dart';
 import 'package:smart_running_app/presentation/widgets/side_menu.dart';
 import 'package:video_player/video_player.dart';
 
@@ -6,28 +7,33 @@ class SlideInfo {
   final String title;
   final String caption;
   final String videoUrl;
-
+ final String link;
   SlideInfo({
     required this.title,
     required this.caption,
     required this.videoUrl,
+     required this.link,
   });
 }
 
 final slides = [
   SlideInfo(
-      title: 'Buscar la comida',
+      title: 'Hybrid Runner  (Corredor Híbrido)',
       caption:
-          'Lorem nulla pariatur nisi consequat ea cupidatat ipsum a pariatur nisi consequat pariatur nisi consequat.',
-      videoUrl: 'assets/clips/1.mp4'),
+          'Enfocado en mejorar tanto la velocidad/resistencia como la fuerza muscular.',
+      videoUrl: 'assets/clips/1.mp4',
+      link: 'Go to table'
+      ),
   SlideInfo(
       title: 'Entrega Rápida',
       caption: 'Lorem nulla pariatur nisi consequat ea cupidatat ipsum a pariatur nisi consequat.',
-      videoUrl: 'assets/clips/2.mp4'),
+      videoUrl: 'assets/clips/2.mp4',
+        link: 'Go to table'),
   SlideInfo(
       title: 'Disfruta de la comida',
       caption: 'Lorem nulla pariatur nisi consequat ea cupidatat ipsum ass pariatur nisi consequat.',
-      videoUrl: 'assets/clips/3.mp4'),
+      videoUrl: 'assets/clips/3.mp4',
+        link: 'Go to table'),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -80,15 +86,37 @@ class _SlideWidget extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Text(
             slide.title,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.fromLTRB(10,4,10,36),
           child: Text(
             slide.caption,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.normal),
+          ),
+        ),
+             Padding(
+          padding: const EdgeInsets.fromLTRB(10, 4, 10, 36),
+          child: InkWell(
+            onTap: () {
+              // Navegar a una nueva pantalla
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LinkDetailScreen(link: slide.link),
+                ),
+              );
+            },
+            child: Text(
+              slide.link,
+              style: TextStyle(
+                color: Colors.blue, // Color azul como los enlaces web
+                decoration: TextDecoration.underline, // Subrayado como <a>
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
         ),
       ],
